@@ -1,0 +1,12 @@
+.app-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.app-input::placeholder {
+  font-size: 11px;
+}

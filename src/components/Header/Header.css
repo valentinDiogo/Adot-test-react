@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 100;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 5px 6px;
+  font-size: 11px;
+  background-color: #56e3a0;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.plus {
+  font-size: 15px;
+  margin-right: 4px;
+  font-weight: 500;
+}

@@ -1,25 +1,106 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import {
+  DestinationsContext,
+  DestinationContextType,
+} from "./context/DestinationsContext";
+import useLocalStorage from "./hooks/useLocalStorage";
+
+import Header from "./components/Header/Header";
+import DestinationsList from "./pages/DestinationsList";
+
+import "./App.css";
+
+const destinations = [
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: false,
+  },
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: true,
+  },
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: false,
+  },
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: true,
+  },
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: false,
+  },
+  {
+    name: "Copenhagen",
+    address: "Rådhuspladsen 1, 1550 København, Denmark",
+    imgUrl:
+      "https://www.flytap.com/-/media/Flytap/new-tap-pages/destinations/europe/denmark/copenhagen/destinations-copenhagen-banner-mobile-1024x553.jpg",
+    habitantsQuantity: 3.4,
+    hotelsQuantity: 5000,
+    size: 88.25,
+    averageSalary: 70000,
+    status: true,
+  },
+];
 
 function App() {
+  const [destinationsList, SetDestinationsList] = useLocalStorage(
+    "destinations",
+    []
+  );
+  const contextValue: DestinationContextType = {
+    destinationList: destinationsList,
+    updateList: SetDestinationsList,
+  };
+
+  useEffect(() => {
+    contextValue.updateList([...destinations]);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DestinationsContext.Provider value={contextValue}>
+      <div className="container">
+        <Header />
+
+        <DestinationsList />
+      </div>
+    </DestinationsContext.Provider>
   );
 }
 

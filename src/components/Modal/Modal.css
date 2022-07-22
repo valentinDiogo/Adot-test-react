@@ -1,0 +1,45 @@
+.modal-title {
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  margin-top: 85px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  margin-right: 15px;
+  color: #aaa;
+}
+
+.confirm-button {
+  color: rgba(47, 203, 153, 0.8);
+}
+
+.modal-button {
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+}
+
+.app-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.app-input::placeholder {
+  font-size: 11px;
+}
